@@ -17,7 +17,17 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-calcium": [
+        "dist/ng-calcium",
+        "dist/ng-calcium"
+      ],
+      "ng-calcium/*": [
+        "dist/ng-calcium/*",
+        "dist/ng-calcium/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

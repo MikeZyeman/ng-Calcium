@@ -120,6 +120,42 @@
           }
         }
       }
-    }},
+    },
+    "ng-Calcium": {
+      "projectType": "library",
+      "root": "projects/ng-calcium",
+      "sourceRoot": "projects/ng-calcium/src",
+      "prefix": "ca",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-calcium/tsconfig.lib.json",
+            "project": "projects/ng-calcium/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-calcium/src/test.ts",
+            "tsConfig": "projects/ng-calcium/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-calcium/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-calcium/tsconfig.lib.json",
+              "projects/ng-calcium/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "testapp"
 }
