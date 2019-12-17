@@ -157,5 +157,10 @@
       }
     }
   },
-  "defaultProject": "testapp"
+  "defaultProject": "testapp",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
