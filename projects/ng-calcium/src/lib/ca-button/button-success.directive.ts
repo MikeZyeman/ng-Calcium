@@ -1,6 +1,6 @@
 import { Directive, ElementRef } from '@angular/core';
 import { ButtonDirective } from './button.directive';
-import { BtnColors } from '../interfaces/btnColor.Interface';
+import { BtnColors } from './btnColor.Interface';
 
 
 const colors: BtnColors = {

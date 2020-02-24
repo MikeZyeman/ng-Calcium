@@ -1,5 +1,5 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
-import { BtnColors } from '../interfaces/btnColor.Interface';
+import { BtnColors } from './btnColor.Interface';
 
 const sColor: BtnColors = {
   Color: '#555',
