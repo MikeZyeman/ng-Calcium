@@ -1,9 +1,9 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[caInfoButton]'
+  selector: '[caButtonError]'
 })
-export class InfoButtonDirective {
+export class ButtonErrorDirective {
 
   constructor() { }
 

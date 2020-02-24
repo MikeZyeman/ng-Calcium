@@ -1,9 +1,9 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[caButton]'
+  selector: '[caButtonSuccess]'
 })
-export class ButtonDirective {
+export class ButtonSuccessDirective {
 
   constructor() { }
 
