@@ -1,74 +1,86 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
+import { BtnColors } from '../interfaces/btnColor.Interface';
+
+const sColor: BtnColors = {
+  Color: '#555',
+  backgroundColor: '#FFF',
+  borderColor: '#bbb',
+
+  hoverColor: '#333',
+  hoverbackgroundColor:'#FFF',
+  hoverborderColor: '#888',
+};
 
 @Directive({
   selector: '[caButton]'
 })
 export class ButtonDirective {
 
-  Color: string;
-  backgroundColor: string;
-  borderColor: string;
+  Color = '#555';
+  backgroundColor = '#FFF';
+  borderColor = '#bbb';
 
-  hoverColor: string;
-  hoverbackgroundColor: string;
-  hoverborderColor: string;
+  hoverColor = '#333';
+  hoverbackgroundColor = '#FFF';
+  hoverborderColor = '#888';
 
   constructor(public el: ElementRef) {
-    const nElement = this.el.nativeElement;
+    const NE = this.el.nativeElement.style;
 
-    this.init();
-    this.setStyle(nElement);
-    this.useStandardColors(nElement);
+    this.setStyle(NE);
+    this.setColors(NE);
   }
 
-  init() {
-    this.Color = '#555';
-    this.backgroundColor = '#FFF';
-    this.borderColor = '#bbb';
-
-    this.hoverColor = '#333';
-    this.hoverbackgroundColor = '#FFF';
-    this.hoverborderColor = '#888';
-  }
-
-  setStyle(nElement) {
-    nElement.style.setProperty('display', 'inline-block');
-    nElement.style.setProperty('height', '38px');
-    nElement.style.setProperty('padding', '0 30px');
-    nElement.style.setProperty('text-align', 'center');
-    nElement.style.setProperty('font-size', '11px');
-    nElement.style.setProperty('font-weight', '600');
-    nElement.style.setProperty('line-height', '38px');
-    nElement.style.setProperty('letter-spacing', '.1rem');
-    nElement.style.setProperty('text-transform', 'uppercase');
-    nElement.style.setProperty('text-decoration', 'none');
-    nElement.style.setProperty('white-space', 'nowrap');
-    nElement.style.setProperty('background-color', 'transparent');
-    nElement.style.setProperty('border-radius', '4px');
-    nElement.style.setProperty('border', '1px solid #bbb');
-    nElement.style.setProperty('cursor', 'pointer');
-    nElement.style.setProperty('box-sizing', 'border-box');
+  setStyle(NE) {
+    NE.setProperty('display', 'inline-block');
+    NE.setProperty('height', '38px');
+    NE.setProperty('padding', '0 30px');
+    NE.setProperty('text-align', 'center');
+    NE.setProperty('font-size', '11px');
+    NE.setProperty('font-weight', '600');
+    NE.setProperty('line-height', '38px');
+    NE.setProperty('letter-spacing', '.1rem');
+    NE.setProperty('text-transform', 'uppercase');
+    NE.setProperty('text-decoration', 'none');
+    NE.setProperty('white-space', 'nowrap');
+    NE.setProperty('background-color', 'transparent');
+    NE.setProperty('border-radius', '4px');
+    NE.setProperty('border', '1px solid #bbb');
+    NE.setProperty('cursor', 'pointer');
+    NE.setProperty('box-sizing', 'border-box');
   }
 
   @HostListener('mouseenter') onMouseEnter() {
-    const nElement = this.el.nativeElement;
+    const NE = this.el.nativeElement.style;
 
-    nElement.style.setProperty('color', this.hoverColor);
-    nElement.style.setProperty('background-color', this.hoverbackgroundColor);
-    nElement.style.setProperty('border', `1px solid ${this.hoverborderColor}`);
-    nElement.style.setProperty('outline', '1px');
+    NE.setProperty('color', this.hoverColor);
+    NE.setProperty('background-color', this.hoverbackgroundColor);
+    NE.setProperty('border', `1px solid ${this.hoverborderColor}`);
+    NE.setProperty('outline', '1px');
   }
 
   @HostListener('mouseleave') onMouseLeave() {
-    this.useStandardColors(this.el.nativeElement);
+    this.useColors(this.el.nativeElement.style);
   }
 
-  useStandardColors(nElement) {
+  setColors(colors: BtnColors = sColor) {
+    this.Color = colors.Color;
+    this.backgroundColor = colors.backgroundColor;
+    this.borderColor = colors.borderColor;
 
-    nElement.style.setProperty('color', this.Color);
-    nElement.style.setProperty('background-color', this.backgroundColor);
-    nElement.style.setProperty('border', `1px solid ${this.borderColor}`);
-    nElement.style.setProperty('outline', 'none');
+    this.hoverColor = colors.hoverColor;
+    this.hoverbackgroundColor = colors.hoverbackgroundColor;
+    this.hoverborderColor = colors.hoverborderColor;
+
+    this.useColors(this.el.nativeElement.style);
+  }
+
+  useColors(NE) {
+
+    NE.setProperty('color', this.Color);
+    NE.setProperty('background-color', this.backgroundColor);
+    NE.setProperty('border', `1px solid ${this.borderColor}`);
+    NE.setProperty('outline', 'none');
   }
 
 }

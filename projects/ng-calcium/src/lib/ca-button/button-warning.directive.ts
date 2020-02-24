@@ -4,19 +4,18 @@ import { BtnColors } from '../interfaces/btnColor.Interface';
 
 const colors: BtnColors = {
   Color: '#FFF',
-  backgroundColor: '#33C3F0',
-  borderColor: '#33C3F0',
+  backgroundColor: '#f0cd33',
+  borderColor: '#f0cd33',
 
   hoverColor: '#FFF',
-  hoverbackgroundColor: '#1EAEDB',
-  hoverborderColor: '#1EAEDB',
+  hoverbackgroundColor: '#d1b02a',
+  hoverborderColor: '#d1b02a',
 }
 
 @Directive({
-  selector: '[caButtonPrimary]',
-  exportAs: 'caButtonPrimary'
+  selector: '[caButtonWarning]'
 })
-export class ButtonPrimaryDirective extends ButtonDirective {
+export class ButtonWarningDirective extends ButtonDirective {
 
   constructor(public el: ElementRef) {
     super(el);
